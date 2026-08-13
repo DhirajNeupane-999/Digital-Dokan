@@ -1,6 +1,7 @@
 import { Request, Response } from "express";
 import user from "./Database/models/userModel";
 import bcrypt from "bcrypt";
+import generateToken from "./Services/generateToken";
 
 class userController {
   static async register(req: Request, res: Response) {
@@ -16,11 +17,12 @@ class userController {
       const newUser = await user.create({
         username,
         email,
-        password: bcrypt.hashSync(password, 13)
+        password: bcrypt.hashSync(password, 12)
       });
-
+      const token = generateToken(newUser.id.toString());
       return res.status(201).json({
         message: "User created successfully",
+        token,
         user: {
           id: newUser.id,
           username: newUser.username,
