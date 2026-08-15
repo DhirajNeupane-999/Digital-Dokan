@@ -1,4 +1,4 @@
-import * as jwt from 'jsonwebtoken';
+const jwt: any = require('jsonwebtoken');
 const generateToken = (userid: string) => {
     // Generate token jwt 
     const token = jwt.sign(

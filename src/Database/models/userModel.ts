@@ -1,5 +1,7 @@
 import { DataTypes, Model } from "sequelize";
-import sequelize from "../../Database/connection";
+import getSequelize from "../../Database/connection";
+
+const sequelize = getSequelize();
 
 class User extends Model {
   declare id: number;
