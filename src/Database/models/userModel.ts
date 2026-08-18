@@ -1,9 +1,9 @@
-import { DataTypes, Model } from "sequelize";
-import getSequelize from "../../Database/connection";
+import Sequelize from "sequelize";
+import sequelize from "../connection";
 
-const sequelize = getSequelize();
+const { DataTypes } = Sequelize as any;
 
-class User extends Model {
+class User extends (Sequelize as any).Model {
   declare id: number;
   declare username: string;
   declare email: string;
@@ -36,7 +36,7 @@ User.init(
   {
     sequelize,
     tableName: "users",
-    timestamps: true
+    timestamps: true,
   }
 );
 
