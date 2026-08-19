@@ -1,7 +1,7 @@
 import 'reflect-metadata';
 import express from "express";
 import "./Database/connection";
-import userRoute from "./userRoute";
+import userRoute from "./route/userRoute";
 
 const app = express();
 app.use(express.json());
