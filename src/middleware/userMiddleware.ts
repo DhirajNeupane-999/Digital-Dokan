@@ -51,7 +51,7 @@ class UserMiddleware {
 
   restrictTo(...roles: Role[]) {
     return (req: IExtendedRequest, res: Response, next: NextFunction) => {
-      const userRole = req.user?.role as Role | undefined;
+      const userRole = req.user?.role as Role | undefined; 
       if (!userRole || !roles.includes(userRole)) {
         res.status(403).json({ message: "You do not have permission to perform this action" });
         return;

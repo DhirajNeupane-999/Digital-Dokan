@@ -1,4 +1,4 @@
-﻿import bcrypt from "bcrypt";
+﻿import bcrypt from "bcryptjs";
 import { envConfig } from "../config/config";
 import User from "./Database/models/userModel";
 
